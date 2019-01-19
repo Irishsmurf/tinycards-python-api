@@ -13,7 +13,7 @@ def json_to_user(json_data):
         email=json_data.get('email'),
         fullname=json_data.get('fullname'),
         user_id=json_data['id'],
-        learning_language=json_data('learningLanguage'),
+        learning_language=json_data['learningLanguage'],
         picture_url=json_data['picture'],
         subscribed=json_data['subscribed'],
         subscriber_count=json_data['subscriberCount'],
