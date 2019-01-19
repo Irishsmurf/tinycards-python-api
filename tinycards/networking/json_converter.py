@@ -11,7 +11,7 @@ def json_to_user(json_data):
     user_obj = User(
         creation_date=json_data['creationDate'],
         email=json_data['email'],
-        fullname=json_data.get['fullname'],
+        fullname=json_data['fullname'],
         user_id=json_data['id'],
         learning_language=json_data['learningLanguage'],
         picture_url=json_data['picture'],
