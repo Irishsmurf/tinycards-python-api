@@ -114,7 +114,7 @@ def json_to_card(json_data):
         user_id=json_data['userId'],
         card_id=json_data['id']
     )
-
+)
     return card_obj
 
 
@@ -166,7 +166,6 @@ def deck_to_json(deck_obj, cards_as_string=False):
         'name': deck_obj.title,
         'description': deck_obj.description,
         'id': deck_obj.id,
-        ''
         'private': False,
         'shareable': False,
         'cards': str(cards) if cards_as_string else cards,
