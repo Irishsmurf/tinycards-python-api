@@ -9,7 +9,6 @@ class Deck(object):
     def __init__(self,
                  title,
                  description=None,
-                 cover=None,
                  deck_id=None,
                  visibility='everyone',
                  front_language=None,

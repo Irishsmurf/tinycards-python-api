@@ -10,3 +10,6 @@ class Favorite(object):
         """
         self.id = id_
         self.deck = deck
+
+    def __str__(self):
+        return str(self.__dict__)
