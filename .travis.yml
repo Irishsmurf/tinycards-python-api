@@ -3,7 +3,7 @@ python:
   - '3.6'
 install:
   - pip install -e .
-  - pip install pytest
+  - pip install pytest 
   - pip install 'pytest-cov>=2.4.0,<2.6'
   - pip install coveralls
 script:
