@@ -43,7 +43,7 @@ def json_to_fact(json_data):
 def fact_to_json(fact_obj):
     """Convert a Fact object into a JSON dict."""
     json_data = {
-        # 'id': fact_obj.id,
+        'id': fact_obj.id,
         'text': fact_obj.text,
         'type': fact_obj.type
     }
@@ -69,12 +69,12 @@ def json_to_concept(json_data):
 def concept_to_json(concept_obj):
     """Convert a Concept object into a JSON dict."""
     json_data = {
-        # 'createdAt': concept_obj.creation_timestamp,
+        'createdAt': concept_obj.creation_timestamp,
         'fact': fact_to_json(concept_obj.fact),
-        # 'id': concept_obj.id,
-        # 'noteFacts': [],
-        # 'updatedAt': concept_obj.update_timestamp,
-        # 'userId': concept_obj.user_id
+        'id': concept_obj.id,
+        'noteFacts': [],
+        'updatedAt': concept_obj.update_timestamp,
+        'userId': concept_obj.user_id
     }
 
     return json_data
@@ -97,8 +97,8 @@ def side_to_json(side_obj):
     """Convert a Side object into a JSON dict."""
     json_data = {
         'concepts': [concept_to_json(c) for c in side_obj.concepts],
-        # 'id': side_obj.side_id,
-        # 'userId': side_obj.user_id
+        'id': side_obj.side_id,
+        'userId': side_obj.user_id
     }
 
     return json_data
@@ -114,20 +114,20 @@ def json_to_card(json_data):
         user_id=json_data['userId'],
         card_id=json_data['id']
     )
-
+)
     return card_obj
 
 
 def card_to_json(card_obj):
     """Convert a Card object into a JSON dict."""
     json_data = {
-        # 'id': card_obj.id,
+        'id': card_obj.id,
         'creationTimestamp': card_obj.creation_timestamp,
         'sides': [
             side_to_json(card_obj.front),
             side_to_json(card_obj.back)
         ],
-        # 'userId': card_obj.user_id
+        'userId': card_obj.user_id
     }
 
     # Add additional fields if not None.
@@ -145,7 +145,6 @@ def json_to_deck(json_data):
         title=json_data['name'],
         description=json_data['description'],
         deck_id=json_data['id'],
-        cover=json_data['imageUrl'],
         cards=([json_to_card(c) for c in json_data['cards']]
                if 'cards' in json_data else [])
     )
@@ -166,6 +165,7 @@ def deck_to_json(deck_obj, cards_as_string=False):
     json_data = {
         'name': deck_obj.title,
         'description': deck_obj.description,
+        'id': deck_obj.id,
         'private': False,
         'shareable': False,
         'cards': str(cards) if cards_as_string else cards,
